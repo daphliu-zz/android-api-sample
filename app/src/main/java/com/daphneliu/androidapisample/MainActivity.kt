@@ -12,41 +12,27 @@ import retrofit2.converter.gson.GsonConverterFactory
 class MainActivity : AppCompatActivity() {
 
     companion object {
-        private const val API_KEY = "TODO"
+        private const val API_KEY: String = ""// TODO API key
     }
 
     private val retrofit = Retrofit.Builder()
-        .baseUrl("https://maps.googleapis.com/maps/api/")
+        .baseUrl("https://example.com") // TODO base url
         .addConverterFactory(GsonConverterFactory.create())
         .build()
 
-    private val geocodingService = retrofit.create(GeocodingService::class.java)
+    // TODO Geocoding API Service
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        addressEditText.setOnKeyListener { _, keyCode, event ->
-            if (event.action == KeyEvent.ACTION_DOWN && keyCode == KeyEvent.KEYCODE_ENTER) {
-                onEnterKey()
-                true
-            } else {
-                false
-            }
-        }
-
+        // TODO set up enter key listener to call onEnterKey()
     }
 
     private fun onEnterKey() {
         lifecycleScope.launch {
-            val address = addressEditText.text.toString()
-            val response = geocodingService.geocode(address, API_KEY)
-            if (response.status == "OK") {
-                val location = response.results.first().geometry.location
-                latLngTextView.text = getString(R.string.located_at, location.lat, location.lng)
-            } else {
-                latLngTextView.text = response.error_message
-            }
+            // TODO “You pressed Enter!”
+            // TODO make API call
         }
     }
 }

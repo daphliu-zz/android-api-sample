@@ -3,13 +3,8 @@ package com.daphneliu.androidapisample
 import retrofit2.http.GET
 import retrofit2.http.Query
 
-interface GeocodingService {
-    /**
-     * Address to [LatLng]
-     */
-    @GET("geocode/json")
-    suspend fun geocode(
-        @Query("address") address: String,
-        @Query("key") key: String
-    ): GeocodingResponse
-}
+/**
+ * Retrofit docs:
+ * https://square.github.io/retrofit/
+ */
+// TODO Write Geocoding API Service interface
